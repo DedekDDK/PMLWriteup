@@ -1,17 +1,25 @@
-PMLWriteup - Project
+Codebook
 ====================
-Welcome to my pages for Machine Learning Excercise.
+Welcome to the codebook for Machine Learning Excercise I created during the Coursera project.
 
-Unfortunatelly, my R Studio got hanging when I ran the train function, so I am not able to complete the exercise in time,
-but I will do my best to complete it as soon as possible (within like 1 or 2 hours), so please take always the latest version
-of my files.
+###Data
+The source data came from http://groupware.les.inf.puc-rio.br/har site and contains various measurements when couple
+of people were lifting weights and were doing these excersices either properly (classe=A) or with common mistakes (classe=B ..)
 
-###Content
-####predictions.R
-This file is the main script for creating the learning algorithm for predicting the exercising classes from the training data set.
+###Data preparation & Analysis
+Before processing the data, data from the file pml-training.csv were stripped of the line number and name of the lifter, as 
+ther are not relevant for the predictions.
+Classe (resulting factor variable) was converted to a factor.
 
-###codebook.md
-This file describes what, how and why I have done with the data and what are the basic parameters of the predictor.
+This "training" dataset was split into real train and test datasets, with p=3/4.
+All columns containing NAs were removed, so resulting number of columns in the training set was 91 (incl. classe).
 
+Using train function, the prediction model was calculated, using defaults - Random Forest option, with default boosting for cross-validation, to select best prediction model.
+
+Accuracy of the predictor on Training data is:
+Accurace of the predictor on Testing data is:
+
+Resulting predictor was used to predict data in the file pml-testing.csv, which was provided without classe value.
+These predicted values are to be submitted in the form of 20 separate files, according the result vector.
 
 
