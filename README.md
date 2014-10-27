@@ -10,8 +10,11 @@ of my files.
 ####predictions.R
 This file is the main script for creating the learning algorithm for predicting the exercising classes from the training data set.
 
-###codebook.md
+####codebook.md
 This file describes what, how and why I have done with the data and what are the basic parameters of the predictor.
+
+####codebook.html and index.html
+I tried to create gh-pages from md files, but I am not sure if I was successful. Please copy the content of the html page and store it locally to view it. (contains the same file as codebook.md).
 
 
 
