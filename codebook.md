@@ -12,13 +12,6 @@ ther are not relevant for the predictions.
 Classe (resulting factor variable) was converted to a factor.
 
 This "training" dataset was split into real train and test datasets, with p=3/4.
-All columns containing NAs were removed, so resulting number of columns in the training set was 91 (incl. classe).
-
-Using train function, the prediction model was calculated, using defaults - Random Forest option, with default boosting for cross-validation, to select best prediction model.
-
-Accuracy of the predictor on Training data is:
-Accurace of the predictor on Testing data is:
-
 All columns containing NAs were removed, as well as other character vectors, containing lot of time Div/0 or nothing. Resulting number of columns in the training set was 54 (incl. classe).
 
 Using train function, the prediction model was calculated, using defaults - Random Forest option, with default bootstrapping (25 reps) for cross-validation, to select best prediction model.
