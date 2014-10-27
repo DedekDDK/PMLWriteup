@@ -12,14 +12,31 @@ ther are not relevant for the predictions.
 Classe (resulting factor variable) was converted to a factor.
 
 This "training" dataset was split into real train and test datasets, with p=3/4.
+<<<<<<< HEAD
 All columns containing NAs were removed, so resulting number of columns in the training set was 91 (incl. classe).
 
 Using train function, the prediction model was calculated, using defaults - Random Forest option, with default boosting for cross-validation, to select best prediction model.
 
 Accuracy of the predictor on Training data is:
 Accurace of the predictor on Testing data is:
+=======
+All columns containing NAs were removed, as well as other character vectors, containing lot of time Div/0 or nothing. Resulting number of columns in the training set was 54 (incl. classe).
+
+Using train function, the prediction model was calculated, using defaults - Random Forest option, with default bootstrapping (25 reps) for cross-validation, to select best prediction model.
+Accuracy of the predictor model is 0.996, Kappa 0.995
+
+Accuracy of the predictor on Training data is: 1.0
+Accurace of the predictor on Testing data is: 0.9969
+>>>>>>> gh-pages
 
 Resulting predictor was used to predict data in the file pml-testing.csv, which was provided without classe value.
 These predicted values are to be submitted in the form of 20 separate files, according the result vector.
 
+<<<<<<< HEAD
+=======
+Resulting vector was used to generate 20 files for submission and all were correct.
+(as expected with the Accuracy of 0.9969 on testing data set)
+
+
+>>>>>>> gh-pages
 
