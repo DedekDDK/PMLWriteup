@@ -3,7 +3,7 @@ library(caret)
 
 #read training data set
 trainall<-read.csv("pml-training.csv",stringsAsFactors=FALSE)
-#row number (X) and user_name are irrelevant for training
+#row number (X), user_name and timestamps are irrelevant for training
 trainall<-trainall[,-(1:5)]
 #classe to be a factor
 trainall$classe<-factor(trainall$classe)
@@ -31,7 +31,7 @@ okcols<-colnames(oktrain)
 #use the same columns for testing data set, for validation
 oktest<-testing[,okcols]
 
-#use the same columns for the predicting data set (pml-testing.csv)
+#use the same columns for the predicting data set (pml-testing.csv), without column classe, which is missing
 okPredictcols<-okcols[-grep("classe",okcols)]
 okPredict<-test[,okPredictcols]
 
@@ -42,13 +42,10 @@ stopifnot(complete.cases(oktest))
 stopifnot(complete.cases(okPredict))
 
 
-#train the model of random forest with all defaults
+#train the model of random forest with all defaults (bootstrapping 25 reps)
 set.seed(232323)
-<<<<<<< HEAD
-mod<-train(classe ~ ., data=oktest)
-=======
 mod<-train(classe ~ ., data=oktrain)
->>>>>>> gh-pages
+
 
 #find the Accuracy of the predictor on Train data
 predTrain<-predict(mod,oktrain)
@@ -62,9 +59,6 @@ confusionMatrix(predTest,oktest$classe)
 predPredict<-predict(mod,okPredict)
 
 #predPredict is a vector for submission
-<<<<<<< HEAD
-=======
-
 pml_write_files = function(x){
         n = length(x)
         for(i in 1:n){
@@ -75,4 +69,3 @@ pml_write_files = function(x){
 #script should work with character vector, so better to convert it
 predStr<-as.character(predPredict)
 pml_write_files(predStr)
->>>>>>> gh-pages
